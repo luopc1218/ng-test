@@ -1,3 +1,16 @@
-<div class="login">
-
-</div>
+<nz-layout class="home">
+  <nz-header>header</nz-header>
+  <nz-layout>
+    <nz-sider [ngClass]="{'navigator':true,'navigator-hide':isHideNav}">
+      <app-navigator></app-navigator>
+      <div (click)="toggleNav()" [title]="isHideNav?'展开':'隐藏'" class="shrink">
+        <i [ngClass]="{'shrink-icon':true,'shrink-icon-rotate':isHideNav}" nz-icon nzTheme="outline"
+           nzType="left"></i>
+      </div>
+    </nz-sider>
+    <nz-layout>
+      <nz-content>content</nz-content>
+      <nz-footer>footer</nz-footer>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>
