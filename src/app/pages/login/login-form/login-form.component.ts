@@ -33,12 +33,14 @@ export class LoginFormComponent implements OnInit {
   //  登录
   login(): void {
     this.loading = true;
-    const loadingMessage: string = this.message.loading('登陆中', {nzDuration: 0}).messageId;
     setTimeout(() => {
-      this.loading = false;
-      this.message.remove(loadingMessage);
-      this.message.success('登陆成功');
-      this.router.navigateByUrl('home');
+      const loadingMessage: string = this.message.loading('登陆中', {nzDuration: 0}).messageId;
+      setTimeout(() => {
+        this.loading = false;
+        this.message.remove(loadingMessage);
+        this.message.success('登陆成功');
+        this.router.navigateByUrl('home');
+      }, 2000);
     }, 2000);
 
   }

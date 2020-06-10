@@ -1,5 +1,7 @@
 <nz-layout class="home">
-  <nz-header>header</nz-header>
+  <nz-header>
+    <app-header></app-header>
+  </nz-header>
   <nz-layout>
     <nz-sider [ngClass]="{'navigator':true,'navigator-hide':isHideNav}">
       <app-navigator></app-navigator>
@@ -10,7 +12,11 @@
     </nz-sider>
     <nz-layout>
       <nz-content>content</nz-content>
-      <nz-footer>footer</nz-footer>
+      <nz-footer>
+        <div class="copyright">
+          ©1995-2004 Eric A. and Kathryn S. Meyer. All Rights Reserved.
+        </div>
+      </nz-footer>
     </nz-layout>
   </nz-layout>
 </nz-layout>

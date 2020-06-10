@@ -47,10 +47,4 @@ export class HomeComponent implements OnInit {
       hideNav();
     }
   }
-
-
-  //  注销
-  signOut(): void {
-    window.location.replace('/login');
-  }
 }

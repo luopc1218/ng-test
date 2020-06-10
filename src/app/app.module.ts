@@ -24,11 +24,14 @@ import {NzPageHeaderModule} from 'ng-zorro-antd/page-header';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import {NzMenuModule} from 'ng-zorro-antd/menu';
+import {NzSpinModule} from 'ng-zorro-antd/spin';
+import {NzModalModule} from 'ng-zorro-antd/modal';
 //  NzIcons
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import {IconDefinition} from '@ant-design/icons-angular';
 import {LoginRegisteredComponent} from './pages/login/login-registered/login-registered.component';
 import {NavigatorComponent} from './pages/home/navigator/navigator.component';
+import {HeaderComponent} from './pages/home/header/header.component';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -46,7 +49,8 @@ registerLocaleData(zh);
     PageNotFoundComponent,
     LoginFormComponent,
     LoginRegisteredComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,9 @@ registerLocaleData(zh);
     NzPageHeaderModule,
     NzMessageModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    NzSpinModule,
+    NzModalModule
   ],
   providers: [{provide: NZ_I18N, useValue: zh_CN}],
   bootstrap: [AppComponent]
