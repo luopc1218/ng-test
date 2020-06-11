@@ -32,6 +32,9 @@ import {IconDefinition} from '@ant-design/icons-angular';
 import {LoginRegisteredComponent} from './pages/login/login-registered/login-registered.component';
 import {NavigatorComponent} from './pages/home/navigator/navigator.component';
 import {HeaderComponent} from './pages/home/header/header.component';
+import {Test11Component} from './pages/home/children/test11/test11.component';
+import {Test12Component} from './pages/home/children/test12/test12.component';
+import {Test2Component} from './pages/home/children/test2/test2.component';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -50,7 +53,10 @@ registerLocaleData(zh);
     LoginFormComponent,
     LoginRegisteredComponent,
     NavigatorComponent,
-    HeaderComponent
+    HeaderComponent,
+    Test11Component,
+    Test12Component,
+    Test2Component
   ],
   imports: [
     BrowserModule,

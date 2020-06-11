@@ -5,7 +5,9 @@ import {LoginFormComponent} from './pages/login/login-form/login-form.component'
 import {LoginRegisteredComponent} from './pages/login/login-registered/login-registered.component';
 import {HomeComponent} from './pages/home/home.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
-
+import {Test11Component} from './pages/home/children/test11/test11.component';
+import {Test12Component} from './pages/home/children/test12/test12.component';
+import {Test2Component} from './pages/home/children/test2/test2.component';
 
 const routes: Routes = [
   {
@@ -14,7 +16,13 @@ const routes: Routes = [
       {path: 'registered', component: LoginRegisteredComponent},
     ]
   },
-  {path: 'home', component: HomeComponent},
+  {
+    path: 'home', component: HomeComponent, children: [
+      {path: 'test11', component: Test11Component},
+      {path: 'test12', component: Test12Component},
+      {path: 'test2', component: Test2Component},
+    ]
+  },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
