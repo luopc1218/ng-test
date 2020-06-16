@@ -10,11 +10,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NZ_I18N, zh_CN} from 'ng-zorro-antd/i18n';
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
-//  pages
-import {LoginComponent} from './pages/login/login.component';
-import {HomeComponent} from './pages/home/home.component';
-import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
-import {LoginFormComponent} from './pages/login/login-form/login-form.component';
 //  NzComponents
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {NzInputModule} from 'ng-zorro-antd/input';
@@ -27,15 +22,24 @@ import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {NzSpinModule} from 'ng-zorro-antd/spin';
 import {NzModalModule} from 'ng-zorro-antd/modal';
 import {NzResultModule} from 'ng-zorro-antd/result';
+import {NzSelectModule} from 'ng-zorro-antd/select';
+import {NzTableModule} from 'ng-zorro-antd/table';
+import {NzPopconfirmModule} from 'ng-zorro-antd/popconfirm';
 //  NzIcons
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import {IconDefinition} from '@ant-design/icons-angular';
+//  pages
+import {LoginComponent} from './pages/login/login.component';
+import {HomeComponent} from './pages/home/home.component';
+import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
+import {LoginFormComponent} from './pages/login/login-form/login-form.component';
 import {LoginRegisteredComponent} from './pages/login/login-registered/login-registered.component';
 import {NavigatorComponent} from './pages/home/navigator/navigator.component';
 import {HeaderComponent} from './pages/home/header/header.component';
 import {Test11Component} from './pages/home/children/test11/test11.component';
 import {Test12Component} from './pages/home/children/test12/test12.component';
 import {Test2Component} from './pages/home/children/test2/test2.component';
+import {EditUserInfoComponent} from './pages/home/children/test11/edit-user-info/edit-user-info.component';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -57,7 +61,8 @@ registerLocaleData(zh);
     HeaderComponent,
     Test11Component,
     Test12Component,
-    Test2Component
+    Test2Component,
+    EditUserInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +82,10 @@ registerLocaleData(zh);
     NzMenuModule,
     NzSpinModule,
     NzModalModule,
-    NzResultModule
+    NzResultModule,
+    NzSelectModule,
+    NzTableModule,
+    NzPopconfirmModule
   ],
   providers: [{provide: NZ_I18N, useValue: zh_CN}],
   bootstrap: [AppComponent]

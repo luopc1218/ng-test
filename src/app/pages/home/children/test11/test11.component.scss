@@ -1,4 +1,18 @@
 .test11 {
-  background: white;
   padding: 1rem;
+  box-sizing: border-box;
+
+  .search {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .ant-form-item {
+      margin-right: 10px;
+    }
+  }
+
+  .userTable {
+    margin-top: 10px;
+  }
 }
