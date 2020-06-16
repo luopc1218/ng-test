@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NzModalService} from 'ng-zorro-antd/modal';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,11 @@ import {NzModalService} from 'ng-zorro-antd/modal';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private modal: NzModalService) {
+  constructor(private modal: NzModalService, private router: Router) {
   }
 
   ngOnInit(): void {
+    console.log(this.router);
   }
 
   logOut(): void {

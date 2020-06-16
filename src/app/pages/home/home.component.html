@@ -1,8 +1,8 @@
 <nz-layout class="home">
-  <nz-header>
+  <nz-header style="width:100%;position: fixed;top:0;left: 0">
     <app-header></app-header>
   </nz-header>
-  <nz-layout>
+  <nz-layout style="margin-top: 64px">
     <nz-sider [ngClass]="{'navigator':true,'navigator-hide':isHideNav}">
       <app-navigator></app-navigator>
       <div (click)="toggleNav()" [title]="isHideNav?'展开':'隐藏'" class="shrink">
@@ -10,10 +10,8 @@
            nzType="left"></i>
       </div>
     </nz-sider>
-    <nz-layout>
-      <nz-content>
-        <router-outlet></router-outlet>
-      </nz-content>
+    <nz-layout style="height: calc(100vh - 64px);padding: 1rem;box-sizing: border-box">
+      <router-outlet></router-outlet>
       <nz-footer>
         <div class="copyright">
           ©1995-2004 Eric A. and Kathryn S. Meyer. All Rights Reserved.

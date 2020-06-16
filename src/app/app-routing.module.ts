@@ -18,9 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'home', component: HomeComponent, children: [
-      {path: 'test11', component: Test11Component},
-      {path: 'test12', component: Test12Component},
-      {path: 'test2', component: Test2Component},
+      {path: 'test11', component: Test11Component, data: {path: ['标题1', '标题1-1']}},
+      {path: 'test12', component: Test12Component, data: {path: ['标题1', '标题1-2']}},
+      {path: 'test2', component: Test2Component, data: {path: ['标题2', '标题2']}},
     ]
   },
   {path: '', redirectTo: '/home', pathMatch: 'full'},

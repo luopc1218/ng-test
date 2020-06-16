@@ -26,6 +26,7 @@ import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {NzSpinModule} from 'ng-zorro-antd/spin';
 import {NzModalModule} from 'ng-zorro-antd/modal';
+import {NzResultModule} from 'ng-zorro-antd/result';
 //  NzIcons
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import {IconDefinition} from '@ant-design/icons-angular';
@@ -75,7 +76,8 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzMenuModule,
     NzSpinModule,
-    NzModalModule
+    NzModalModule,
+    NzResultModule
   ],
   providers: [{provide: NZ_I18N, useValue: zh_CN}],
   bootstrap: [AppComponent]
