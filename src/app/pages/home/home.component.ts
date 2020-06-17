@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {BreadcrumbService} from './breadcrumb.service';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,7 @@ import {Router} from '@angular/router';
 export class HomeComponent implements OnInit {
   isHideNav: boolean;
 
-  constructor(private router: Router) {
-
+  constructor(private router: Router, public breadcrumb: BreadcrumbService) {
   }
 
   ngOnInit(): void {
@@ -22,12 +22,13 @@ export class HomeComponent implements OnInit {
 
   // 检测是否登录了
   checkIsLogin(): boolean {
-    if (false) {
-      this.router.navigateByUrl('login');
-      return false;
-    } else {
-      return true;
-    }
+    // if (false) {
+    //   this.router.navigateByUrl('login');
+    //   return false;
+    // } else {
+    //   return true;
+    // }
+    return true;
   }
 
   //  切换导航栏显示

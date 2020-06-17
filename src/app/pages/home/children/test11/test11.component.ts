@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NzModalService} from 'ng-zorro-antd/modal';
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
+import {BreadcrumbService} from '../../breadcrumb.service';
 
-interface User {
+export interface User {
   id: number;
   name?: string;
   sex?: null | number;
@@ -16,15 +17,15 @@ interface User {
   styleUrls: ['./test11.component.scss']
 })
 export class Test11Component implements OnInit {
-  loading: boolean;
+  loading = false;
   searchForm!: FormGroup;
   userList: User[];
 
-  constructor(private fb: FormBuilder, private modal: NzModalService) {
+  constructor(private fb: FormBuilder, private modal: NzModalService, private breadcrumb: BreadcrumbService) {
   }
 
   ngOnInit(): void {
-    this.loading = false;
+    this.breadcrumb.updatePath(['系统管理', '人员管理']);
     this.searchForm = this.fb.group({
       name: [''],
       sex: [null], //  0:男,1:女
@@ -71,16 +72,22 @@ export class Test11Component implements OnInit {
   delUser(id: number): void {
     console.log(id);
   }
+
   //  编辑人员信息
-  toEditUserInfo(id: number): void {
-    this.modal.create({
+  toEditUserInfo(user: User): void {
+    const editModal = this.modal.create({
       nzTitle: '人员信息编辑',
       nzContent: EditUserInfoComponent,
       nzComponentParams: {
-        id
+        user
       },
-      nzOnOk: () => {
-
+      nzFooter: null,
+    });
+    editModal.afterClose.subscribe((event: string): void => {
+      switch (event) {
+        case 'updated':
+          this.search();
+          break;
       }
     });
   }

@@ -1,3 +1,32 @@
 <div class="editUserInfo">
-  {{id}}
+  <nz-spin [nzSpinning]="loading">
+    <form (ngSubmit)="submit()" [formGroup]="userInfoForm" nz-form>
+      <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="name" nzRequired>姓名</nz-form-label>
+        <nz-form-control nzErrorTip="请输入姓名!">
+          <input disabled formControlName="name" nz-input placeholder="请输入"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="sex">性别</nz-form-label>
+        <nz-form-control nzErrorTip="请选择性别!">
+          <nz-select formControlName="sex" nzAllowClear nzPlaceHolder="请选择" style="width: 100px">
+            <nz-option [nzValue]="0" nzLabel="男"></nz-option>
+            <nz-option [nzValue]="1" nzLabel="女"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="email">电子邮箱</nz-form-label>
+        <nz-form-control nzErrorTip="请输入电子邮箱!">
+          <input formControlName="email" nz-input placeholder="请输入"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzSm]="{ span: 16, offset: 4 }" [nzXs]="{ span: 24, offset: 0 }">
+          <button nz-button nzType="primary">提交</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-spin>
 </div>

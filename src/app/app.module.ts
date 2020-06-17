@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-
+import {enableProdMode, NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 //  响应式表单
@@ -25,6 +24,7 @@ import {NzResultModule} from 'ng-zorro-antd/result';
 import {NzSelectModule} from 'ng-zorro-antd/select';
 import {NzTableModule} from 'ng-zorro-antd/table';
 import {NzPopconfirmModule} from 'ng-zorro-antd/popconfirm';
+import {NzBreadCrumbModule} from 'ng-zorro-antd/breadcrumb';
 //  NzIcons
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import {IconDefinition} from '@ant-design/icons-angular';
@@ -40,6 +40,9 @@ import {Test11Component} from './pages/home/children/test11/test11.component';
 import {Test12Component} from './pages/home/children/test12/test12.component';
 import {Test2Component} from './pages/home/children/test2/test2.component';
 import {EditUserInfoComponent} from './pages/home/children/test11/edit-user-info/edit-user-info.component';
+
+enableProdMode();
+
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -85,7 +88,8 @@ registerLocaleData(zh);
     NzResultModule,
     NzSelectModule,
     NzTableModule,
-    NzPopconfirmModule
+    NzPopconfirmModule,
+    NzBreadCrumbModule
   ],
   providers: [{provide: NZ_I18N, useValue: zh_CN}],
   bootstrap: [AppComponent]

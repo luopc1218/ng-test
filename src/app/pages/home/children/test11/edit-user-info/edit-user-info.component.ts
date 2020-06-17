@@ -1,4 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NzModalRef, NzModalService} from 'ng-zorro-antd/modal';
+import {NzMessageService} from 'ng-zorro-antd/message';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {User} from '../test11.component';
 
 @Component({
   selector: 'app-edit-user-info',
@@ -7,14 +11,38 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class EditUserInfoComponent implements OnInit {
 
-  @Input() id?: null | number;
+  @Input() user?: User;
 
-  constructor() {
+  loading: boolean;
+  userInfoForm!: FormGroup;
+
+  constructor(private modal: NzModalService, private modalRef: NzModalRef, private fb: FormBuilder, private message: NzMessageService) {
 
   }
 
   ngOnInit(): void {
-    console.log(this.id);
+    this.loading = false;
+    this.userInfoForm = this.fb.group({
+      id: [this.user.id, [Validators.required]],
+      name: [this.user.name, [Validators.required]],
+      sex: [this.user.sex],
+      email: [this.user.email],
+    });
   }
 
+  submit(): void {
+    this.modal.confirm({
+      nzTitle: '提示',
+      nzContent: '确认要修改这条信息吗?',
+      nzOnOk: () => {
+        this.loading = true;
+        setTimeout(() => {
+          this.loading = false;
+          this.message.success('修改成功');
+          console.log(this.user);
+          this.modalRef.destroy('updated');
+        }, 1000);
+      }
+    });
+  }
 }

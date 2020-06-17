@@ -1,18 +1,16 @@
 <div class="test11">
   <nz-spin [nzSpinning]="loading">
-    <form (ngSubmit)="search()" [formGroup]="searchForm" class="search" nz-form>
+    <form (ngSubmit)="search()" [formGroup]="searchForm" [nzLayout]="'inline'" class="search" nz-form>
       <nz-form-item>
         <nz-form-label nzFor="name">姓名</nz-form-label>
         <nz-form-control>
-          <label>
-            <input formControlName="name" nz-input placeholder="请输入"/>
-          </label>
+          <input formControlName="name" nz-input placeholder="请输入"/>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-label nzFor="sex">性别</nz-form-label>
         <nz-form-control>
-          <nz-select formControlName="sex" nzAllowClear nzPlaceHolder="请选择" style="width: 100px">
+          <nz-select formControlName="sex" nzAllowClear nzPlaceHolder="请选择">
             <nz-option [nzValue]="0" nzLabel="男"></nz-option>
             <nz-option [nzValue]="1" nzLabel="女"></nz-option>
           </nz-select>
@@ -21,9 +19,7 @@
       <nz-form-item>
         <nz-form-label nzFor="email">电子邮箱</nz-form-label>
         <nz-form-control>
-          <label>
-            <input formControlName="email" nz-input placeholder="请输入"/>
-          </label>
+          <input formControlName="email" nz-input placeholder="请输入"/>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
@@ -47,7 +43,7 @@
         <td nzAlign="center">{{ user.sex == 0 ? '男' : '女' }}</td>
         <td>{{ user.email }}</td>
         <td nzAlign="center">
-          <a (click)="toEditUserInfo(user.id)" nz-button nzType="link">修改信息</a>
+          <a (click)="toEditUserInfo(user)" nz-button nzType="link">修改信息</a>
           <a (nzOnConfirm)="delUser(user.id)" nz-button nz-popconfirm nzDanger nzPopconfirmPlacement="bottom"
              nzPopconfirmTitle="确定要删除这项信息吗?" nzType="link"
           >删除</a>
@@ -56,89 +52,4 @@
       </tbody>
     </nz-table>
   </nz-spin>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi beatae, consequatur culpa cum excepturi
-    inventore perspiciatis quae repellendus! Autem dolorum ex itaque libero molestias obcaecati, praesentium quae
-    quidem
-    quo sit tempore vel vero voluptatum. Aperiam autem beatae corporis dolor dolores ea, eaque harum, illo iste itaque
-    iusto laudantium minus nulla officia officiis possimus quasi qui quidem quisquam quod ratione repellat rerum sint
-    unde vitae. Atque eius error necessitatibus non quis. Ad eligendi et magni possimus quaerat sapiente, similique
-    veritatis vitae. Asperiores autem cumque dignissimos modi nam natus sit ullam. Consectetur deleniti ea fugiat, in
-    ipsa itaque iusto libero neque, possimus quam repudiandae sequi voluptas! Animi atque cupiditate deleniti
-    doloremque
-    expedita fugit illo, illum in itaque pariatur qui quia reiciendis repudiandae rerum saepe sapiente vel. Accusamus
-    alias architecto asperiores at aut, consequatur cupiditate eos est eveniet exercitationem explicabo illo incidunt
-    nisi, nobis placeat possimus quas quia repudiandae, tempora tempore unde veritatis vitae voluptates! Autem
-    distinctio, id itaque possimus quia quisquam quos similique tempora voluptatibus. Ab alias aliquam asperiores, at
-    consequuntur cum delectus dignissimos dolorem doloribus impedit magnam nihil nobis placeat praesentium provident
-    quidem quo sed, vel! Accusantium animi aspernatur atque aut ea esse excepturi, fugiat id incidunt provident
-    quaerat
-    repellat repudiandae tenetur veniam veritatis. Adipisci aspernatur autem dicta dignissimos enim et facilis laborum
-    perspiciatis quo quos repellat repellendus sit sunt suscipit, velit voluptas, voluptatum? Commodi dignissimos esse
-    explicabo incidunt minima! Aperiam assumenda aut consectetur dolor dolore doloremque dolores doloribus enim
-    eveniet
-    ex expedita iste laborum libero minus neque numquam placeat, possimus quia quo quos rem repellendus saepe sapiente
-    similique sit soluta temporibus ullam ut velit, vero. Ad amet aperiam blanditiis consequatur consequuntur
-    doloremque
-    eius est, hic ipsa iste iure maxime minus modi natus non porro possimus quod rem repellendus rerum tenetur
-    voluptatem voluptatum! Quia, quibusdam sapiente? Alias aliquid assumenda aut deleniti dicta, doloribus eos esse
-    excepturi facilis fuga inventore labore laudantium magnam, quae quaerat quibusdam quisquam sequi, sunt tempora
-    tenetur totam vel voluptas. Amet aspernatur dolores eligendi enim error esse est eum eveniet incidunt inventore
-    libero necessitatibus nemo nihil nobis, non quae quo ratione reiciendis sint ut vel velit voluptas! Aut cumque,
-    dolores expedita fugiat ipsum labore molestiae, mollitia necessitatibus neque nihil nisi quas quidem reprehenderit
-    saepe suscipit vero vitae! Aut enim harum inventore, ipsa natus pariatur quam reiciendis repellendus repudiandae
-    sapiente sint vero voluptatem? Asperiores consectetur dolorem dolores ex praesentium quidem temporibus, veniam
-    vero.
-    Adipisci aut, blanditiis cum cumque debitis dicta, dolore fugit incidunt, ipsa ipsum labore molestias nihil nisi
-    nulla optio quos similique tenetur totam ullam voluptatibus! Blanditiis dolorem ea eaque labore perferendis quasi
-    quisquam recusandae veritatis voluptatibus? Asperiores assumenda atque blanditiis dolorem dolores esse eveniet
-    exercitationem fuga incidunt natus neque nesciunt officia optio porro quibusdam quis quo rem, ut voluptates
-    voluptatibus! Ad aliquid consectetur eius est excepturi officia perspiciatis provident quidem quis, quisquam
-    repellat totam. Aspernatur atque consequuntur culpa eaque, eos ex explicabo facere harum impedit incidunt ipsa
-    ipsam
-    laudantium nisi quas qui ratione, rem sed tenetur vel voluptates. Error porro provident tempora. Accusantium
-    cumque
-    delectus dignissimos doloremque eos error ex fuga minus nostrum numquam, perspiciatis porro possimus ratione,
-    repudiandae similique veniam, voluptatem? Aliquid, est et eum fugiat iusto minus nihil officia omnis qui
-    reprehenderit, sint sit suscipit tempora ut vitae? Amet blanditiis cupiditate enim eos esse et eveniet excepturi,
-    ipsum molestiae mollitia nam officiis optio perspiciatis quaerat quisquam quo quos repellat, repudiandae rerum ut!
-    Aliquam aperiam consequuntur ea eaque eveniet neque nihil non nulla quia, ratione sequi sunt tenetur ullam vero
-    vitae! Ducimus eveniet, nobis omnis praesentium ratione voluptatem voluptatibus? Asperiores aut dolor ducimus eius
-    et expedita itaque optio, placeat quod, quos repudiandae suscipit tenetur vitae. Ad at debitis deleniti dolores
-    doloribus facilis hic iusto laudantium libero, odio perspiciatis repellat sequi tempore totam vero? Aliquam cum,
-    delectus dolor enim fuga magnam modi quam reiciendis, rerum, sequi tempore voluptate? Ad aliquam aliquid assumenda
-    atque beatae consequuntur cumque debitis, dicta dignissimos dolor, dolore ducimus eligendi eos eveniet
-    exercitationem explicabo harum id in incidunt ipsum molestias nobis optio pariatur sit unde ut veritatis! Aperiam
-    aspernatur beatae distinctio dolor eaque earum eius enim eos exercitationem expedita explicabo harum itaque iusto
-    labore laudantium minima nihil pariatur quas quibusdam soluta, temporibus voluptas voluptatibus! Amet animi
-    aperiam
-    blanditiis consequatur consequuntur debitis deleniti dignissimos distinctio doloribus dolorum earum enim esse fuga
-    id laboriosam magnam minima nemo numquam officiis, quas quibusdam quisquam rerum sapiente sit tempore. Animi,
-    cupiditate eligendi eos explicabo fugiat iure laudantium magni, natus nihil numquam qui quod recusandae
-    temporibus,
-    veniam veritatis vero voluptatem. Impedit libero magnam mollitia praesentium veritatis. Adipisci aliquam animi
-    aperiam architecto asperiores at, commodi consectetur deserunt doloremque ea earum eligendi error fugiat impedit
-    in,
-    ipsa laboriosam laudantium minima minus molestias nam natus nesciunt nihil nobis obcaecati porro possimus quaerat
-    quam sequi sunt veniam veritatis vero voluptas voluptate voluptates voluptatibus voluptatum. Accusantium amet
-    animi
-    deserunt ea, eius esse est exercitationem facere illum in ipsa magni officiis quisquam similique suscipit unde
-    voluptatum! Aspernatur autem delectus doloribus harum incidunt iure labore laboriosam minima mollitia
-    perspiciatis,
-    quam sed, sequi totam unde ut. Aut dolorem itaque nihil quaerat! Dicta est exercitationem ipsam magni molestiae
-    odio
-    quam quasi? Eligendi fugit ipsum iure totam voluptatum. A adipisci aperiam asperiores aspernatur at commodi
-    consequuntur cum cupiditate delectus dicta, doloremque ducimus ea eaque, eligendi error et excepturi expedita
-    explicabo, fuga hic itaque iure magnam natus necessitatibus numquam officiis porro qui quia quis quisquam quod rem
-    repellat reprehenderit rerum saepe similique tempora. Corporis dicta harum iusto officiis pariatur totam
-    voluptate.
-    Ab architecto asperiores autem beatae culpa debitis distinctio dolorum eius eveniet exercitationem illo inventore
-    ipsa ipsum iste, laboriosam laudantium magni maxime modi natus officia officiis optio pariatur perspiciatis porro
-    quam quasi quis quisquam reiciendis repellendus reprehenderit repudiandae rerum similique sunt tempora ullam vitae
-    voluptas? Accusantium aliquam animi aspernatur culpa, deleniti doloremque eaque enim exercitationem harum impedit
-    modi molestiae, necessitatibus officiis reiciendis sequi sit tempore voluptatem? Aliquam architecto assumenda
-    deleniti expedita illum incidunt minima mollitia nam natus non, obcaecati officia reprehenderit sint, sit soluta,
-    tempora temporibus! Alias amet blanditiis ducimus enim excepturi explicabo minus molestiae rem, repellat saepe ut
-    vero.
-  </div>
 </div>
