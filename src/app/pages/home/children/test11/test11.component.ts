@@ -71,7 +71,6 @@ export class Test11Component implements OnInit {
   delUser(id: number): void {
     console.log(id);
   }
-
   //  编辑人员信息
   toEditUserInfo(id: number): void {
     this.modal.create({
