@@ -24,7 +24,7 @@ export class EditUserInfoComponent implements OnInit {
     this.loading = false;
     this.userInfoForm = this.fb.group({
       id: [this.user.id, [Validators.required]],
-      name: [this.user.name, [Validators.required]],
+      name: [{value: this.user.name, disabled: true}, [Validators.required]],
       sex: [this.user.sex],
       email: [this.user.email],
     });
