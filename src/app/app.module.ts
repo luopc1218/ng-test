@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {enableProdMode, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 //  响应式表单
@@ -40,8 +40,9 @@ import {Test11Component} from './pages/home/children/test11/test11.component';
 import {Test12Component} from './pages/home/children/test12/test12.component';
 import {Test2Component} from './pages/home/children/test2/test2.component';
 import {EditUserInfoComponent} from './pages/home/children/test11/edit-user-info/edit-user-info.component';
+import {BreadcrumbComponent} from './pages/home/breadcrumb/breadcrumb.component';
 
-enableProdMode();
+// enableProdMode();
 
 
 const antDesignIcons = AllIcons as {
@@ -66,6 +67,7 @@ registerLocaleData(zh);
     Test12Component,
     Test2Component,
     EditUserInfoComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,

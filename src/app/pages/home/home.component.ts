@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {BreadcrumbService} from './breadcrumb.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,13 +9,13 @@ import {BreadcrumbService} from './breadcrumb.service';
 export class HomeComponent implements OnInit {
   isHideNav: boolean;
 
-  constructor(private router: Router, public breadcrumb: BreadcrumbService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    if (this.checkIsLogin()) {
-      console.log('load complete');
-    }
+
+    // if (this.checkIsLogin()) {
+    // }
     this.isHideNav = false;
   }
 

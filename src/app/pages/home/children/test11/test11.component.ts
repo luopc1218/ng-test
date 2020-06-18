@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {NzModalService} from 'ng-zorro-antd/modal';
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
-import {BreadcrumbService} from '../../breadcrumb.service';
+import {BreadcrumbService} from '../../breadcrumb/breadcrumb.service';
 
 export interface User {
   id: number;
@@ -21,11 +21,11 @@ export class Test11Component implements OnInit {
   searchForm!: FormGroup;
   userList: User[];
 
-  constructor(private fb: FormBuilder, private modal: NzModalService, private breadcrumb: BreadcrumbService) {
+  constructor(private fb: FormBuilder, private modal: NzModalService, private breadcrumbService: BreadcrumbService) {
   }
 
   ngOnInit(): void {
-    this.breadcrumb.updatePath(['系统管理', '人员管理']);
+    this.breadcrumbService.path.next(['系统管理', '人员管理']);
     this.searchForm = this.fb.group({
       name: [''],
       sex: [null], //  0:男,1:女
