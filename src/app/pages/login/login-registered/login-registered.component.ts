@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-login-registered',
   templateUrl: './login-registered.component.html',
-  styleUrls: ['./login-registered.component.scss']
+  styleUrls: ['./login-registered.component.scss'],
 })
 export class LoginRegisteredComponent implements OnInit {
   registeredForm!: FormGroup;

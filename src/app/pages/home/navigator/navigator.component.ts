@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 interface ModuleItem {
   id: number;
@@ -15,6 +16,10 @@ interface ModuleItem {
 export class NavigatorComponent implements OnInit {
 
   moduleList: ModuleItem[];
+
+  constructor(private router: Router) {
+  }
+
   //  获取模块列表
   getModuleList(): void {
     this.moduleList = [
@@ -30,6 +35,8 @@ export class NavigatorComponent implements OnInit {
       },
       {id: 2, title: '模块2', url: '/home/test2', children: []}
     ];
+    //  进入第一个页面
+    this.router.navigateByUrl(this.moduleList[0].children.length > 0 ? this.moduleList[0].children[0].url : this.moduleList[0].url);
   }
 
   ngOnInit(): void {

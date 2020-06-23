@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {fadeInOut} from '../../../utils';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [fadeInOut]
 })
 export class HomeComponent implements OnInit {
   isHideNav: boolean;
@@ -46,5 +48,9 @@ export class HomeComponent implements OnInit {
     } else {
       hideNav();
     }
+  }
+
+  handleRouteChange(outlet: any) {
+    return outlet && outlet.activatedRouteData;
   }
 }

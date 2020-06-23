@@ -12,8 +12,8 @@
     </nz-sider>
     <nz-layout style="height: calc(100vh - 64px);">
       <app-breadcrumb></app-breadcrumb>
-      <div class="content">
-        <router-outlet></router-outlet>
+      <div [@fadeInOut]="handleRouteChange(outlet)" class="content">
+        <router-outlet #outlet="outlet"></router-outlet>
       </div>
       <nz-footer>
         <div class="copyright">
