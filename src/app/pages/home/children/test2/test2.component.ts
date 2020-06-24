@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {BreadcrumbService} from '../../breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-test2',
@@ -7,10 +8,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class Test2Component implements OnInit {
 
-  constructor() {
+  constructor(private breadcrumbService: BreadcrumbService) {
   }
 
   ngOnInit(): void {
+    this.breadcrumbService.path.next(['系统管理', 'test2']);
   }
 
 }

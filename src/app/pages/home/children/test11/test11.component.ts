@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {NzModalService} from 'ng-zorro-antd/modal';
 import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
 import {BreadcrumbService} from '../../breadcrumb/breadcrumb.service';
+import {NzMessageService} from 'ng-zorro-antd/message';
 
 export interface User {
   id: number;
@@ -21,7 +22,12 @@ export class Test11Component implements OnInit {
   searchForm!: FormGroup;
   userList: User[];
 
-  constructor(private fb: FormBuilder, private modal: NzModalService, private breadcrumbService: BreadcrumbService) {
+  constructor(
+    private fb: FormBuilder,
+    private modal: NzModalService,
+    private breadcrumbService: BreadcrumbService,
+    private message: NzMessageService
+  ) {
   }
 
   ngOnInit(): void {
@@ -29,7 +35,6 @@ export class Test11Component implements OnInit {
     this.searchForm = this.fb.group({
       name: [''],
       sex: [null], //  0:男,1:女
-      email: [''],
     });
     this.search();
   }
@@ -68,11 +73,6 @@ export class Test11Component implements OnInit {
     }, 1000);
   }
 
-  //  删除人员
-  delUser(id: number): void {
-    console.log(id);
-  }
-
   //  编辑人员信息
   toEditUserInfo(user: User): void {
     const editModal = this.modal.create({
@@ -90,5 +90,15 @@ export class Test11Component implements OnInit {
           break;
       }
     });
+  }
+
+  //  删除人员
+  delUser(id: number): void {
+    console.log(id);
+    this.loading = true;
+    setTimeout(() => {
+      this.message.success('删除成功');
+      this.search();
+    }, 2000);
   }
 }

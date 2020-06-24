@@ -39,8 +39,10 @@
   .content {
     margin: 0 2rem;
     flex: 1;
+    padding: 1rem;
     box-sizing: border-box;
     background: white;
+    position: relative;
   }
 
   .copyright {

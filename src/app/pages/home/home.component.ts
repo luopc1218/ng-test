@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {fadeInOut} from '../../../utils';
+import {fadeInOut} from '../../../utils/animations';
 
 
 @Component({
