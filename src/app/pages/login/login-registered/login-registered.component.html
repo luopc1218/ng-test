@@ -1,37 +1,39 @@
 <form class="registered-form" nz-form>
-  <nz-page-header (nzBack)="back()" class="site-page-header" nzBackIcon="left" nzTitle="注册">
-  </nz-page-header>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="请输入用户名!">
-      <nz-input-group nzPrefixIcon="user">
-        <input nz-input placeholder="用户名" type="text"/>
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="请输入密码!">
-      <nz-input-group nzPrefixIcon="lock">
-        <input nz-input placeholder="密码" type="password"/>
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="请再次输入密码!">
-      <nz-input-group nzPrefixIcon="lock">
-        <input nz-input placeholder="确认密码" type="password"/>
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control nzErrorTip="请输入电子邮箱!">
-      <nz-input-group nzPrefixIcon="mail">
-        <input nz-input placeholder="电子邮箱" type="text"/>
-      </nz-input-group>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <button class="login-form-button" nz-button nzBlock nzShape="round" nzType="primary">
-      注册
-    </button>
-  </nz-form-item>
+  <nz-spin [nzSpinning]="loading">
+    <nz-page-header (nzBack)="back()" class="site-page-header" nzBackIcon="left" nzTitle="注册">
+    </nz-page-header>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="请输入用户名!">
+        <nz-input-group nzPrefixIcon="user">
+          <input nz-input placeholder="用户名" type="text"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="请输入密码!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input nz-input placeholder="密码" type="password"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="请再次输入密码!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input nz-input placeholder="确认密码" type="password"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="请输入电子邮箱!">
+        <nz-input-group nzPrefixIcon="mail">
+          <input nz-input placeholder="电子邮箱" type="text"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <button (click)="submit()" class="login-form-button" nz-button nzBlock nzShape="round" nzType="primary">
+        注册
+      </button>
+    </nz-form-item>
+  </nz-spin>
 </form>

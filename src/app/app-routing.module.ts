@@ -23,7 +23,7 @@ const routes: Routes = [
       {path: 'test2', component: Test2Component, data: {path: ['标题2', '标题2']}},
     ]
   },
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
 

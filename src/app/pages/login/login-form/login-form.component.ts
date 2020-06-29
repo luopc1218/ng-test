@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NzMessageService} from 'ng-zorro-antd/message';
+import {ConfigService} from '../../../config.service';
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   validateForm!: FormGroup;
   loading: boolean;
 
-  constructor(private fb: FormBuilder, private router: Router, private message: NzMessageService) {
+  constructor(private fb: FormBuilder, private router: Router, private message: NzMessageService, private request: ConfigService) {
   }
 
   ngOnInit(): void {
@@ -33,15 +34,29 @@ export class LoginFormComponent implements OnInit {
   //  登录
   login(): void {
     this.loading = true;
-    setTimeout(() => {
-      const loadingMessage: string = this.message.loading('登陆中', {nzDuration: 0}).messageId;
-      setTimeout(() => {
+    // setTimeout(() => {
+    //   const loadingMessage: string = this.message.loading('登陆中', {nzDuration: 0}).messageId;
+    //   setTimeout(() => {
+    //     this.loading = false;
+    //     this.message.remove(loadingMessage);
+    //     this.message.success('登陆成功');
+    //     this.router.navigateByUrl('home');
+    //   }, 2000);
+    // }, 2000);
+    this.request.post({
+      url: '/login',
+      params: {
+        id: 20200001,
+        userId: 'tse',
+        userSex: 1
+      },
+      success: (res) => {
+        console.log(res);
+      },
+      complete: () => {
+        console.log('request complete!');
         this.loading = false;
-        this.message.remove(loadingMessage);
-        this.message.success('登陆成功');
-        this.router.navigateByUrl('home');
-      }, 2000);
-    }, 2000);
-
+      }
+    });
   }
 }
