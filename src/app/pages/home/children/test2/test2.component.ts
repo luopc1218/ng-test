@@ -12,7 +12,7 @@ export class Test2Component implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadcrumbService.path.next(['系统管理', 'test2']);
+    this.breadcrumbService.path.next(['test2']);
   }
 
 }
