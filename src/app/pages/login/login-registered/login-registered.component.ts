@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ConfigService } from '../../../config.service';
 //  !MD5
 import { Md5 } from 'ts-md5/dist/md5';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-login-registered',
@@ -22,7 +23,8 @@ export class LoginRegisteredComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private request: ConfigService
+    private request: ConfigService,
+    private modal: NzModalService
   ) {}
   //  验证两次密码输入是否一致
   confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
@@ -36,11 +38,11 @@ export class LoginRegisteredComponent implements OnInit {
   ngOnInit(): void {
     this.registeredForm = this.fb.group({
       userName: [null, [Validators.required]],
+      sex: [null],
       password: [null, [Validators.required]],
       passwordCheck: [null, [Validators.required, this.confirmationValidator]],
-      sex: [null],
-      email: [null, [Validators.email, Validators.required]],
-      phone: [null],
+      phone: [null, [Validators.required]],
+      email: [null, [Validators.email]],
     });
   }
 
@@ -52,10 +54,29 @@ export class LoginRegisteredComponent implements OnInit {
       params: {
         userName: this.registeredForm.value.userName,
         password: Md5.hashStr(this.registeredForm.value.password),
+        sex: this.registeredForm.value.sex,
         email: this.registeredForm.value.email,
+        phone: this.registeredForm.value.phone,
       },
       success: (res) => {
-        console.log(res);
+        if (res.ok) {
+          const modal = this.modal.create({
+            nzTitle: '注册成功',
+            nzClosable: false,
+            nzMaskClosable: false,
+            nzContent: `您的用户ID为:<h1>${res.data.userId}</h1>`,
+            nzFooter: [
+              {
+                label: '去登陆',
+                type: 'primary',
+                onClick: () => {
+                  modal.destroy();
+                  this.router.navigateByUrl('/login');
+                },
+              },
+            ],
+          });
+        }
       },
       complete: () => {
         this.loading = false;

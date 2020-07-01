@@ -8,43 +8,22 @@
     >
     </nz-page-header>
     <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="8" nzFor="userName"
+        >用户名</nz-form-label
+      >
       <nz-form-control nzErrorTip="请输入用户名!">
-        <nz-input-group nzPrefixIcon="user">
+        <nz-input-group>
           <input
             nz-input
             formControlName="userName"
-            placeholder="用户名"
+            placeholder="请输入"
             type="text"
           />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-control nzErrorTip="请输入密码!">
-        <nz-input-group nzPrefixIcon="lock">
-          <input
-            nz-input
-            formControlName="password"
-            placeholder="密码"
-            type="password"
-          />
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-control nzErrorTip="两次密码输入不一致!">
-        <nz-input-group nzPrefixIcon="lock">
-          <input
-            nz-input
-            formControlName="passwordCheck"
-            placeholder="确认密码"
-            type="password"
-          />
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="5" nzFor="sex">性别</nz-form-label>
+      <nz-form-label [nzSpan]="8" nzFor="sex">性别</nz-form-label>
       <nz-form-control>
         <nz-radio-group formControlName="sex">
           <label nz-radio [nzValue]="0">女</label>
@@ -54,29 +33,65 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-control nzErrorTip="请输入正确的电子邮箱!">
-        <nz-input-group nzPrefixIcon="mail">
+      <nz-form-label nzRequired [nzSpan]="8" nzFor="password"
+        >密码</nz-form-label
+      >
+      <nz-form-control nzErrorTip="请输入密码!">
+        <nz-input-group>
           <input
             nz-input
-            formControlName="email"
-            placeholder="电子邮箱"
+            formControlName="password"
+            placeholder="请输入"
+            type="password"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzRequired [nzSpan]="8" nzFor="passwordCheck"
+        >确认密码</nz-form-label
+      >
+      <nz-form-control nzErrorTip="两次密码输入不一致!">
+        <nz-input-group>
+          <input
+            nz-input
+            formControlName="passwordCheck"
+            placeholder="请输入"
+            type="password"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      
+      <nz-form-label nzRequired [nzSpan]="8" nzFor="phone"
+        >联系方式(手机号)</nz-form-label
+      >
+      <nz-form-control>
+        <nz-input-group>
+          <input
+            nz-input
+            formControlName="phone"
+            placeholder="请输入"
             type="text"
           />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-control>
-        <nz-input-group nzPrefixIcon="phone">
+      <nz-form-label [nzSpan]="8" nzFor="email">电子邮箱</nz-form-label>
+      <nz-form-control nzErrorTip="请输入正确的电子邮箱!">
+        <nz-input-group>
           <input
             nz-input
-            formControlName="phone"
-            placeholder="联系方式(手机号)"
+            formControlName="email"
+            placeholder="请输入"
             type="text"
           />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
+
     <nz-form-item>
       <button
         (click)="submit()"
