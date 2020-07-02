@@ -57,7 +57,7 @@ export class ConfigService {
         }
       },
       (error) => {
-        this.message.error(error.error.message || '');
+        this.message.error(error.error.message || '系统错误,请联系管理员');
         if (options.fail) {
           options.fail(error);
         }

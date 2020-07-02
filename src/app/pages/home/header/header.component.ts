@@ -1,27 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {NzModalService} from 'ng-zorro-antd/modal';
+import { Component, OnInit } from '@angular/core';
+import { SystemService } from '../../../system.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  isShowUserInfo = false;
 
-  constructor(private modal: NzModalService) {
-  }
+  constructor(public system: SystemService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  logOut(): void {
-    this.modal.confirm({
-      nzTitle: '警告',
-      nzContent: '确认要退出系统嘛?',
-      nzOnOk: () => {
-        window.location.replace('/login');
-      }
-    });
 
-  }
 }

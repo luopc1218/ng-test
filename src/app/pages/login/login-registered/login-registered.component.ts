@@ -11,6 +11,8 @@ import { ConfigService } from '../../../config.service';
 import { Md5 } from 'ts-md5/dist/md5';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 
+import { updateHistoryUsersIds } from '../../../../utils/index';
+
 @Component({
   selector: 'app-login-registered',
   templateUrl: './login-registered.component.html',
@@ -70,8 +72,10 @@ export class LoginRegisteredComponent implements OnInit {
                 label: '去登陆',
                 type: 'primary',
                 onClick: () => {
-                  modal.destroy();
-                  this.router.navigateByUrl('/login');
+                  updateHistoryUsersIds(res.data.userId).then(() => {
+                    modal.destroy();
+                    this.router.navigateByUrl('/login');
+                  });
                 },
               },
             ],

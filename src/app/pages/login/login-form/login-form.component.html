@@ -1,31 +1,60 @@
-<form (ngSubmit)="login()" [formGroup]="validateForm" class="login-form" nz-form>
+<form
+  (ngSubmit)="login()"
+  [formGroup]="validateForm"
+  class="login-form"
+  nz-form
+>
   <nz-spin [nzSpinning]="loading">
-    <nz-page-header nzTitle="登录">
-    </nz-page-header>
+    <nz-page-header nzTitle="登录"> </nz-page-header>
     <nz-form-item>
       <nz-form-control nzErrorTip="请输入用户名!">
         <nz-input-group nzPrefixIcon="user">
-          <input formControlName="userName" nz-input placeholder="用户名" type="text"/>
+          <nz-autocomplete
+            [nzDataSource]="historyUsersId"
+            nzBackfill
+            #auto
+          ></nz-autocomplete>
+
+          <input
+            [nzAutocomplete]="auto"
+            formControlName="userId"
+            nz-input
+            placeholder="用户名"
+            type="text"
+          />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-control nzErrorTip="请输入密码!">
         <nz-input-group nzPrefixIcon="lock">
-          <input formControlName="password" nz-input placeholder="密码" type="password"/>
+          <input
+            formControlName="password"
+            nz-input
+            placeholder="密码"
+            type="password"
+          />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <div>
-        还无账号?<a (click)="toRegistered()" nz-button nzType="link">前往注册</a>
+        还无账号?<a (click)="toRegistered()" nz-button nzType="link"
+          >前往注册</a
+        >
       </div>
     </nz-form-item>
     <nz-form-item>
-      <button class="login-form-button" nz-button nzBlock nzShape="round" nzType="primary">
+      <button
+        class="login-form-button"
+        [disabled]="validateForm.status == 'INVALID'"
+        nz-button
+        nzBlock
+        nzShape="round"
+        nzType="primary"
+      >
         登录
       </button>
     </nz-form-item>
   </nz-spin>
 </form>
-

@@ -1,11 +1,30 @@
 <div class="header">
   <div class="sysTitle">
-    Ng Test!
+    Ng Test oe System v2020
   </div>
-  <div class="userInfo">
-    <button (click)="logOut()" nz-button>
-      <i nz-icon nzTheme="outline" nzType="logout"></i>
-      注销
-    </button>
+  <div>
+    <nz-avatar
+      style="cursor: pointer;"
+      nzSize="large"
+      (click)="isShowUserInfo = true"
+      nzIcon="user"
+      nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    ></nz-avatar>
+
+    <nz-drawer
+      [nzClosable]="true"
+      [nzVisible]="isShowUserInfo"
+      nzPlacement="right"
+      nzTitle="个人信息"
+      (nzOnClose)="isShowUserInfo = false"
+    >
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+      <button (click)="system.logOut()" nz-button>
+        <i nz-icon nzTheme="outline" nzType="logout"></i>
+        注销
+      </button>
+    </nz-drawer>
   </div>
 </div>
