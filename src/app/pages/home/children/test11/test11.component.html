@@ -1,10 +1,16 @@
 <div class="test11">
   <nz-spin [nzSpinning]="loading">
-    <form (ngSubmit)="search()" [formGroup]="searchForm" [nzLayout]="'inline'" class="search" nz-form>
+    <form
+      (ngSubmit)="search()"
+      [formGroup]="searchForm"
+      [nzLayout]="'inline'"
+      class="search"
+      nz-form
+    >
       <nz-form-item>
         <nz-form-label nzFor="name">姓名</nz-form-label>
         <nz-form-control>
-          <input formControlName="name" nz-input placeholder="请输入"/>
+          <input formControlName="name" nz-input placeholder="请输入" />
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
@@ -22,27 +28,50 @@
         </nz-form-control>
       </nz-form-item>
     </form>
-    <nz-table #userTable [nzData]="userList" class="userTable" nzBordered nzTitle="人员列表">
+    <nz-table
+      #userTable
+      [nzData]="userList"
+      class="userTable"
+      nzBordered
+      [nzTitle]="userTableTitle"
+    >
+      <ng-template #userTableTitle>
+        人员列表
+        <a nz-button nzType="link">
+          <i nz-icon nzType="user-add" nzTheme="outline"></i>添加人员</a
+        >
+      </ng-template>
       <thead>
-      <tr>
-        <th nzWidth="200px">姓名</th>
-        <th nzAlign="center" nzWidth="100px">性别</th>
-        <th>电子邮箱</th>
-        <th nzAlign="center" nzWidth="200px">操作</th>
-      </tr>
+        <tr>
+          <th nzWidth="200px">姓名</th>
+          <th nzAlign="center" nzWidth="100px">性别</th>
+          <th nzWidth="200px">联系方式</th>
+          <th>电子邮箱</th>
+          <th nzAlign="center" nzWidth="200px">操作</th>
+        </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of userList">
-        <td>{{ user.name }}</td>
-        <td nzAlign="center">{{ user.sex == 0 ? '男' : '女' }}</td>
-        <td>{{ user.email }}</td>
-        <td nzAlign="center">
-          <a (click)="toEditUserInfo(user)" nz-button nzType="link">修改信息</a>
-          <a (nzOnConfirm)="delUser(user.id)" nz-button nz-popconfirm nzDanger nzPopconfirmPlacement="bottom"
-             nzPopconfirmTitle="确定要删除这项信息吗?" nzType="link"
-          >删除</a>
-        </td>
-      </tr>
+        <tr *ngFor="let user of userList">
+          <td>{{ user.name }}</td>
+          <td nzAlign="center">{{ ["女", "男"][user.sex] }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.email }}</td>
+          <td nzAlign="center">
+            <a (click)="toEditUserInfo(user.id)" nz-button nzType="link"
+              >修改信息</a
+            >
+            <a
+              (nzOnConfirm)="delUser(user.id)"
+              nz-button
+              nz-popconfirm
+              nzDanger
+              nzPopconfirmPlacement="bottom"
+              nzPopconfirmTitle="确定要删除这项信息吗?"
+              nzType="link"
+              >删除</a
+            >
+          </td>
+        </tr>
       </tbody>
     </nz-table>
   </nz-spin>

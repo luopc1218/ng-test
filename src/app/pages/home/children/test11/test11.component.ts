@@ -1,21 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {NzModalService} from 'ng-zorro-antd/modal';
-import {EditUserInfoComponent} from './edit-user-info/edit-user-info.component';
-import {BreadcrumbService} from '../../breadcrumb/breadcrumb.service';
-import {NzMessageService} from 'ng-zorro-antd/message';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { EditUserInfoComponent } from './edit-user-info/edit-user-info.component';
+import { BreadcrumbService } from '../../breadcrumb/breadcrumb.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { ConfigService } from '../../../../config.service';
 
 export interface User {
   id: number;
   name?: string;
   sex?: null | number;
+  phone?: string;
   email?: string;
 }
 
 @Component({
   selector: 'app-test11',
   templateUrl: './test11.component.html',
-  styleUrls: ['./test11.component.scss']
+  styleUrls: ['./test11.component.scss'],
 })
 export class Test11Component implements OnInit {
   loading = false;
@@ -26,9 +28,9 @@ export class Test11Component implements OnInit {
     private fb: FormBuilder,
     private modal: NzModalService,
     private breadcrumbService: BreadcrumbService,
-    private message: NzMessageService
-  ) {
-  }
+    private message: NzMessageService,
+    private request: ConfigService
+  ) {}
 
   ngOnInit(): void {
     this.breadcrumbService.path.next(['系统管理', '人员管理']);
@@ -42,44 +44,31 @@ export class Test11Component implements OnInit {
   //  查询人员列表
   search(): void {
     this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-      this.userList = [
-        {
-          id: 1,
-          name: '张三',
-          sex: 1,
-          email: '无'
-        },
-        {
-          id: 2,
-          name: '李四',
-          sex: 0,
-          email: '无'
-        },
-        {
-          id: 3,
-          name: '啥视',
-          sex: null,
-          email: '666@qq.com'
-        },
-        {
-          id: 4,
-          name: '知识',
-          sex: 1,
-          email: 'aaaa@163.com'
-        },
-      ];
-    }, 1000);
+
+    this.request.get({
+      url: '/users/getList',
+      params: {
+        test: 'test',
+      },
+      success: (res) => {
+        this.userList = res.data;
+      },
+      fail: (err) => {
+        console.error(err);
+      },
+      complete: () => {
+        this.loading = false;
+      },
+    });
   }
 
   //  编辑人员信息
-  toEditUserInfo(user: User): void {
+  toEditUserInfo(id: number): void {
     const editModal = this.modal.create({
       nzTitle: '人员信息编辑',
       nzContent: EditUserInfoComponent,
       nzComponentParams: {
-        user
+        id,
       },
       nzFooter: null,
     });
@@ -94,11 +83,22 @@ export class Test11Component implements OnInit {
 
   //  删除人员
   delUser(id: number): void {
-    console.log(id);
     this.loading = true;
-    setTimeout(() => {
-      this.message.success('删除成功');
-      this.search();
-    }, 2000);
+    this.request.post({
+      url: '/users/deletelById',
+      params: {
+        id,
+      },
+      success: (res) => {
+        this.message.success('删除成功');
+        this.search();
+      },
+      fail: (err) => {
+        console.error(err);
+      },
+      complete: () => {
+        this.loading = false;
+      },
+    });
   }
 }

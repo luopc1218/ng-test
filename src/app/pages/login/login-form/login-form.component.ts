@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NzMessageService } from 'ng-zorro-antd/message';
-import { ConfigService } from '../../../config.service';
 import { SystemService } from '../../../system.service';
 
 @Component({
@@ -17,8 +15,6 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private message: NzMessageService,
-    private request: ConfigService,
     private system: SystemService
   ) {}
 

@@ -46,6 +46,7 @@ import { EditUserInfoComponent } from './pages/home/children/test11/edit-user-in
 import { BreadcrumbComponent } from './pages/home/breadcrumb/breadcrumb.component';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { AddUserComponent } from './pages/home/children/test11/add-user/add-user.component';
 // enableProdMode();
 
 const antDesignIcons = AllIcons as {
@@ -72,6 +73,7 @@ registerLocaleData(zh);
     Test2Component,
     EditUserInfoComponent,
     BreadcrumbComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
